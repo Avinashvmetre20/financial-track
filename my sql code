@@ -1,0 +1,21 @@
+CREATE DATABASE financial_db; -- creating the database
+
+show databases; -- (optional) checkout of databse
+
+USE financial_db;  -- enabling the database
+
+-- table creation
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    amount DECIMAL(10, 2) NOT NULL,
+    type VARCHAR(10) NOT NULL,  -- 'gain' or 'spent'
+    purpose VARCHAR(255),
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    balance decimal(10, 2)
+);
+
+-- insert the data
+INSERT INTO transactions (amount, type, purpose, balance) VALUES (0,'gain', ' ',0);
+
+-- verification to proper insertion of the data
+select * from transactions;
